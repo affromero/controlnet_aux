@@ -69,10 +69,10 @@ class Wholebody:
         bboxes = np.concatenate(
             (pred_instance.bboxes, pred_instance.scores[:, None]), axis=1)
         bboxes = bboxes[np.logical_and(pred_instance.labels == 0,
-                                    pred_instance.scores > 0.5)]
+                                    pred_instance.scores > 0.0)]
     
         # set NMS threshold
-        bboxes = bboxes[nms(bboxes, 0.7), :4]
+        bboxes = bboxes[nms(bboxes, 0.4), :4]
 
         # predict keypoints
         if len(bboxes) == 0:
