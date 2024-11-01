@@ -86,9 +86,9 @@ _deps = [
     "scipy",
     "huggingface_hub",
     "einops",
-    "timm",
+    "timm<=0.6.7",
     "torchvision",
-    "scikit-image"
+    "scikit-image",
 ]
 
 # this is a lookup table with items like:
@@ -180,7 +180,7 @@ install_requires = [
 
 setup(
     name="controlnet_aux",
-    version="0.0.6",  # expected format is one of x.y.z.dev0, or x.y.z.rc1 or x.y.z (no to dashes, yes to dots)
+    version="0.0.9",  # expected format is one of x.y.z.dev0, or x.y.z.rc1 or x.y.z (no to dashes, yes to dots)
     description="Auxillary models for controlnet",
     long_description=open("README.md", "r", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
