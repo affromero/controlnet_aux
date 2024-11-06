@@ -5,7 +5,7 @@ import os
 import torch
 import torch.nn as nn
 from torchvision.transforms import Compose
-
+import wget
 from .midas.dpt_depth import DPTDepthModel
 from .midas.midas_net import MidasNet
 from .midas.midas_net_custom import MidasNet_small
@@ -90,8 +90,9 @@ def load_model(model_type, model_path=None):
 
     elif model_type == "dpt_hybrid":  # DPT-Hybrid
         if not os.path.exists(model_path):
-            from basicsr.utils.download_util import load_file_from_url
-            load_file_from_url(remote_model_path, model_dir=annotator_ckpts_path)
+            wget.download(remote_model_path, model_path)
+            # from basicsr.utils.download_util import load_file_from_url
+            # load_file_from_url(remote_model_path, model_dir=annotator_ckpts_path)
 
         model = DPTDepthModel(
             path=model_path,
